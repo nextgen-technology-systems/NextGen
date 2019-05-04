@@ -1,0 +1,55 @@
+
+.dashboard-container{
+    
+    background-color: rgb(192, 117, 25);
+}
+
+body{
+    background: #f2f2f2;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h3{
+     font-family: 'Josefin Sans', sans-serif;
+}
+
+.box{
+    padding:60px 0px;
+
+    background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.box-part{
+    background:#FFF;
+    //background:rgb(148, 92, 24);
+    border-radius:10px;
+    padding:60px 10px;
+    margin:30px 0px;
+}
+
+.box-part:hover{
+    background:#4183D7;
+}
+
+.box-part:hover .fa , 
+.box-part:hover .title , 
+.box-part:hover .text ,
+.box-part:hover a{
+    color:#FFF;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+     color:#4183D7;
+}

@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Available color palettes: https://material.io/design/color/
+$cop-app-primary: mat-palette($mat-blue, 600);
+$cop-app-accent:  mat-palette($mat-grey, 600);
+$cop-app-theme: mat-light-theme($cop-app-primary, $cop-app-accent);
+@include angular-material-theme($cop-app-theme);
+
+
+
+
+//$cop-alt-primary: mat-palette($mat-grey, 600);
+//$cop-alt-accent:  mat-palette($mat-grey, 400);
+//$cop-alt-theme: mat-light-theme($cop-alt-primary, $cop-alt-accent);
+
+//.cop-alt-mat{
+//@include angular-material-theme($cop-alt-theme);
+//}

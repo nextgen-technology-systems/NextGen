@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-register100">
+          <form id="registrationFor" [formGroup]="registrationForm" novalidate>
+			<span class="login100-form-title">
+				Member Register
+			</span>
+            <mat-form-field class="field-width">
+              <input matInput placeholder="First Name" formControlName="firstName" required>
+            </mat-form-field>
+						<mat-form-field class="field-width">
+								<input matInput placeholder="Last Name" formControlName="lastName" required>
+							</mat-form-field>       
+							<mat-form-field class="field-width">
+									<input matInput [matDatepicker]="picker" placeholder="Date of birth">
+									<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+									<mat-datepicker #picker></mat-datepicker>
+								</mat-form-field> 
+								<mat-radio-group>
+										<mat-radio-button value="1">Male</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+										<mat-radio-button value="2">Female</mat-radio-button>
+									</mat-radio-group> 
+									<mat-form-field class="field-width">
+											<input matInput type="email" placeholder="Email" formControlName="email" required>
+											
+										</mat-form-field> 
+										<mat-form-field class="field-width">
+												<input matInput type="password" placeholder="Password" formControlName="email" required>
+												
+											</mat-form-field>   
+											<mat-form-field class="field-width">
+													<input matInput type="password" placeholder="Retype password" formControlName="email" required>
+													
+												</mat-form-field>      
+												
+												<div class="container-login100-form-btn">
+														<button class="login100-form-btn">
+															Register
+														</button>
+													</div>	
+
+          </form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+
+
+</body>
+</html>

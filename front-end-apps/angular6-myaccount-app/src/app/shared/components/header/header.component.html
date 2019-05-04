@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand fixed-top">
+  <div class="collapse navbar-collapse">
+
+    <div>
+      <img class="centerlogo" src="/src/assets/images/l.png" />
+    </div>
+    
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item">
+        <a class="nav-link " href="/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/docs/4.0/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Documentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/docs/4.0/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://themes.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');"
+          target="_blank" rel="noopener">Themes</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="https://expo.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');"
+          target="_blank" rel="noopener">Expo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://blog.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');"
+          target="_blank" rel="noopener">Blog</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav  ml-auto">
+      
+        <li class="nav-item">
+            <input type="text" class="form-control" placeholder="Search" name="search">
+            
+          </li>
+          <li class="nav-item">
+              <button class="btn btn-default btn-success" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </li>
+      </ul>
+    <ul class="navbar-nav ml-auto ">
+     
+      <li class="nav-item dropdown" ngbDropdown>
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+          
+          <img src="/src/assets/images/profile.jpg"alt="..." style="width: px; height: 50px;" class="rounded-circle">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item pointer" (click)="goToProfile()">
+            <i class="fa fa-fw fa-user pointer"></i> {{ 'Profile'}}
+          </a>
+          <a class="dropdown-item pointer" (click)="onLoggedout()">
+            <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out'}}
+          </a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>
