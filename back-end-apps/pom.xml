@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.nextgen</groupId>
-    <artifactId>nextgen-parent</artifactId>
-    <version>1.0</version>
-    <packaging>pom</packaging>
+	<groupId>com.nextgen</groupId>
+	<artifactId>parent</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>Nextgen parent POM</name>
 
-    <name>Nextgen parent POM</name>
-
-    
 	<properties>
 		<!-- Fixes an encoding warning on Unix platforms -->
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<org.springframework.version>5.0.0.RELEASE</org.springframework.version>
+		<com.nextgen.version>0.0.1-SNAPSHOT</com.nextgen.version>
+		<logback-classic.version>1.0.13</logback-classic.version>
+		<com.google.gson.version>2.8.2</com.google.gson.version>
+
 	</properties>
-    <build>
-        <resources>
+
+	<build>
+		<resources>
 			<!-- default resource structure, should a pom forget to define resources -->
 			<!-- remember: if you specify them in your pom, these entries get overwritten -->
 			<resource>
@@ -35,9 +39,42 @@
 				</includes>
 			</resource>
 		</resources>
-		
+
 		<pluginManagement>
-		
+			<!-- default settings when these plugins are specified -->
+			<plugins>
+
+
+				<!-- Ignore/Execute plugin execution -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<!-- copy-dependency plugin -->
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals>
+											<goal>copy-dependencies</goal>
+											<goal>copy</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+
+			</plugins>
 		</pluginManagement>
 		<!-- Every project compiles and has tests -->
 		<plugins>
@@ -82,22 +119,96 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
-		<dependencyManagement>
+	</build>
+	<dependencyManagement>
 		<dependencies>
+			<!-- Apache commons API : Latest version updated as of 5/5/2019 -->
 			<dependency>
-				<groupId>org.springframework.ws</groupId>
-				<artifactId>spring-ws-core</artifactId>
-				<version>2.0.4.RELEASE</version>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>1.2</version>
 			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>1.9.3</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-chain</groupId>
+				<artifactId>commons-chain</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.12</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>1.4</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.6</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-discovery</groupId>
+				<artifactId>commons-discovery</artifactId>
+				<version>0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-validator</groupId>
+				<artifactId>commons-validator</artifactId>
+				<version>1.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
+				<version>4.3</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-digester3</artifactId>
+				<version>3.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.9</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
+				<version>2.6.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>2.6.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-configuration2</artifactId>
+				<version>2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.bcel</groupId>
+				<artifactId>bcel</artifactId>
+				<version>6.3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.8</version>
+			</dependency>
+			<!-- Apache commons API : Latest version updated as of 5/5/2019 -->
+
+			<!-- Spring JARS -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aop</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-asm</artifactId>
 				<version>${org.springframework.version}</version>
 			</dependency>
 			<dependency>
@@ -124,6 +235,12 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
 				<version>${org.springframework.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -133,11 +250,6 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-instrument</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-instrument-tomcat</artifactId>
 				<version>${org.springframework.version}</version>
 			</dependency>
 			<dependency>
@@ -177,15 +289,52 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring-webmvc-portlet</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
 				<version>${org.springframework.version}</version>
 			</dependency>
+			<!-- Spring JARS -->
+			
+			<!-- Other JARS -->
+			<dependency>
+            	<groupId>com.google.code.gson</groupId>
+            	<artifactId>gson</artifactId>
+            	<version>${com.google.gson.version}</version>
+        	</dependency>
+			<!-- Other JARS -->
+
+
+			<!-- Nexten JARS -->
+			<dependency>
+				<groupId>com.nextgen.jar</groupId>
+				<artifactId>nextgen-common-jar</artifactId>
+				<version>${com.nextgen.version}</version>
+			</dependency>
+			<!-- Nexten JARS -->
+
 		</dependencies>
 	</dependencyManagement>
-    </build>
+
+	<dependencies>
+		<!-- 1. exclude commons-logging from spring core -->
+		<!-- Given Maven's transitive dependency rules, for "regular" projects 
+			(not libraries or frameworks) declaring logging dependencies can be accomplished 
+			with a single dependency declaration. -->
+		<!-- 3. logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-classic.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- mvn clean package -Puser-mgmt -->
+	<profiles>
+		<profile>
+			<id>user-mgmt</id>
+			<modules>
+				<module>nextgen-common/nextgen-common-jar</module>
+				<module>nextgen-war/user-mgmt-war</module>
+			</modules>
+		</profile>
+	</profiles>
 </project>
