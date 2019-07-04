@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'cd demo'
-        sh 'mvn clean install package -DskipTests=true'
+        sh 'mvn -f demo/pom.xml clean install package -DskipTests=true'
       }
     }
   }
