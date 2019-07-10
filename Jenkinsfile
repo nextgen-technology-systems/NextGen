@@ -9,7 +9,11 @@ pipeline {
     stage('run as spring boot jar') {
       steps {
         sh 'java -jar demo/target/demo-0.0.1-SNAPSHOT.jar'
-      }
+      }post {
+                success {
+                    echo 'App is up and running now'
+                }
+            }
     }
   }
 }
