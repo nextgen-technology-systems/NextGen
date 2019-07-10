@@ -11,10 +11,11 @@ pipeline {
         sh 'java -jar demo/target/demo-0.0.1-SNAPSHOT.jar'
       }
     }
-    post {
+    
+  }
+  post {
                 success {
                     echo 'App is up and running now'
                 }
             }
-  }
 }
