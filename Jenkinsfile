@@ -6,9 +6,9 @@ pipeline {
         sh 'mvn -f demo/pom.xml clean install package -DskipTests=true'
       }
     }
-    stage('run as spring boot jar') {
+    stage('Deploy') {
       steps {
-        sh 'java -jar demo/target/demo-0.0.1-SNAPSHOT.jar'
+        sh 'cp demo/target/demo-0.0.1-SNAPSHOT.war home/ec2-user/apache-tomcat-8.5.43/webapps/'
       }
     }
     
