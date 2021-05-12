@@ -13,7 +13,7 @@
 		<!-- Fixes an encoding warning on Unix platforms -->
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<org.springframework.version>5.0.0.RELEASE</org.springframework.version>
+		<org.springframework.version>5.2.10.RELEASE</org.springframework.version>
 		
 		<hibernate.version>5.2.11.Final</hibernate.version>
 		<hibernate.validator>5.4.1.Final</hibernate.validator>
